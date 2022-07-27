@@ -1,12 +1,25 @@
 {/* <div className='animate-bounce flex justify-center items-center'>
   <div class="border-l-2 border-b-2 border-black right inline-block p-2 rotate-[-45deg]"></div>
 </div> */}
-              
+
+import OverviewFlow from "./text";
+
+import React from "react"
+import Mermaid from "react-mermaid2"
+
 const Toggle_Window_hecto = ({ togglediv1, togglediv2, toggleFuc}) => {
 
   return(
     <>
-     <div className='bg-zinc-300 p-5 mb-52'>
+     <Mermaid chart={`
+        graph TD;
+        A-->B;
+        A-->C;
+        B-->D;
+        C-->D;
+        `}/>
+    {/* <div><OverviewFlow /></div> */}
+     {/* <div className='bg-zinc-300 p-5 mb-52'>
         <div className='bg-green-300 p-2 h-1/5 relative'>
           <div ref = {togglediv1} className=' bg-slate-50 absolute top-[50%] left-[10%] p-1' onClick={ (e)=>{ toggleFuc(togglediv1); }} >
             <div className="grid grid-cols-6 grid-rows-6 p-3">
@@ -25,7 +38,7 @@ const Toggle_Window_hecto = ({ togglediv1, togglediv2, toggleFuc}) => {
               <div>3. 결제 완료</div>
           </div>   
         </div>
-      </div>
+      </div> */}
     </>
   )
 }

@@ -51,18 +51,7 @@ export default function Home() {
 
   return (
     <>
-    {/* <div>
-      <button onClick={(e)=>{
-        axios.get("/api/hello")
-        .then((res)=>{
-          goSubmit();
-        })
-        .then((res)=>{
-          console.log("!!!!!!!")
-          console.log(res)
-        });
-      }}>axios</button>
-    </div> */}
+
       <Topnav_hecto />
 
       <div className='flex p-2 mt-12 bg-orange-300'>
@@ -78,8 +67,8 @@ export default function Home() {
           
           <Item_hecto />
           
-          <div className='bg-orange-300 ml-5 mr-5 h-[700px] flex justify-center'>
-            <iframe className='w-1/2 h-full flex justify-center ' name="frAttachFiles" id='iframe' ></iframe>
+          <div className=' ml-5 mr-5 h-[700px] flex justify-center'>
+            <iframe className='w-full h-full flex justify-center ' name="frAttachFiles" id='iframe' ></iframe>
           </div>
           
           <div className='flex justify-center'>
