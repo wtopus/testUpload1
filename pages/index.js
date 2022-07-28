@@ -21,6 +21,10 @@ export default function Home() {
   
   const [zNumber1, setZNumber1] = useState('z-3');
   const [zNumber2, setZNumber2] = useState('0');
+  const iframeUseRef = useRef(null);
+  const payItemUseRef = useRef(null);
+  const rfrf = useRef(null);
+
   const [inputText, setInputText] = useState({
     mchtId :  ["edu00005"],
     method :  ["card"],
@@ -38,6 +42,22 @@ export default function Home() {
   });
   const togglediv1 = useRef(null);
   const togglediv2 = useRef(null);
+  
+  useEffect(()=>{
+
+    console.log(rfrf);
+    //const iframeEvent = iframeUseRef;
+    // console.log("eerereree")
+    // document.addEventListener("DOMContentLoaded",  () => {
+    //   console.log("tsetset")
+    //   alert("DOM이 준비되었습니다!");
+    // });
+    //console.log(iframeEvent);
+    
+    // iframeEvent.item(0).setAttribute('DOMContentLoaded', ()=>{
+    //   console.log("event!!!")
+    // })
+  },[]);
 
   const toggleFuc = (togglediv) => {
     if(togglediv == togglediv1){
@@ -49,30 +69,43 @@ export default function Home() {
     }
   }
 
+  const iframeUseEffect = useEffect(() => {
+    
+    console.log("test111")
+  }, [iframeUseRef]);
+
   return (
     <>
 
       <Topnav_hecto />
 
-      <div className='flex p-2 mt-12 bg-orange-300'>
+      <div className='flex mt-12 bg-white'>
         
-        <div className='bg-purple-300 w-1/2 p-2'>
+        <div className=' w-1/2 '>
           
           <Toggle_Window_hecto  togglediv1={togglediv1} togglediv2={togglediv2} toggleFuc={toggleFuc} />
+          <div className="h-7"></div>
           <Parameter_window_hecto inputText={inputText} setInputText={setInputText}/>
         
         </div>
 
-        <div className='bg-slate-400 w-1/2'>
+        <div className='bg-[#F2F2F7] w-1/2'>
           
-          <Item_hecto />
+          <Item_hecto payItemUseRef={payItemUseRef}/>
           
-          <div className=' ml-5 mr-5 h-[700px] flex justify-center'>
-            <iframe className='w-full h-full flex justify-center ' name="frAttachFiles" id='iframe' ></iframe>
+          <div ref={iframeUseRef} className=' ml-5 mr-5 h-[700px] justify-center hidden'>
+            <iframe ref={rfrf} className='w-full h-full flex justify-center ' name="frAttachFiles" id='iframe' ></iframe>
           </div>
           
           <div className='flex justify-center'>
-            <button className=' border-1 bg-orange-300 ml-3' onClick={(e)=>{goSubmit(inputText);}}>결제하기</button>
+            <button className=' border-1 bg-[#F2F2F7] ml-3' onClick={(e)=>{
+              //console.log(iframeUseRef.current.className);
+              payItemUseRef.current.className = 'hidden';
+              iframeUseRef.current.className = ' ml-5 mr-5 h-[700px] justify-center flex p-2 mt-5';
+              goSubmit(inputText);
+            }}>
+              <p className="bg-[#F7A319] text-white rounded-full w-32 h-9 flex items-center justify-center">결제하기</p>
+            </button>
           </div>
         
         </div>  

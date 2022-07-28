@@ -9,7 +9,7 @@ export default function handler(req, res) {
   let styleGray = 'display : flex; justify-content: space-between; margin-left: 10%; margin-right: 10%; background-color: #F2F2F7;';
   var someHTML =
    `
-    <div style=\" padding: 5% 5%; border-radius: 20px; background-color: #F2F2F7;\">
+    <div id="payResult" style=\" padding: 5% 5%; border-radius: 20px; background-color: #F2F2F7;\">
       <div style=\" display : flex; justify-content: center; background-color: #F2F2F7; font-size: x-large; margin-top: 50px; margin-bottom: 50px; margin-left: 10%; margin-right: 10%; font-weight-900px; color: black;\"> 결제 완료 응답 파라미터 </div>
       <div style=\" ${styleWhite}\">
         <span>mchtId : </span>

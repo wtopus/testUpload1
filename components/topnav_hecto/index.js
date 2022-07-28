@@ -10,13 +10,18 @@ const Topnav_hecto = () => {
           </div>
           <span className='text-2xl font-bold'>HectoFinancial</span>
         </div>
-        <div className='flex text-2xl space-x-5' > 
+        <div className='flex space-x-5 text-xl items-center mr-2' > 
             <span>체험하기</span>
             <span>서비스</span>
             <span>개발가이드</span>
             <span>개발자 포럼</span>
-            <img className='mt-1 w-[30px] h-[30px]' src="/hecto_logo.svg" />
-            <input placeholder='Search'/>
+            <div className='flex items-center justify-end space-x-2'>
+              <img className='mt-1 w-[21px] h-[21px]' src="/search_1.svg" />
+              <input placeholder='Search' className='w-20'/>
+            </div>
+            
+            
+            
         </div>  
         
       </div>    
