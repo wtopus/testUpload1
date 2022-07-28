@@ -16,15 +16,15 @@ import { utilAes256, utilSha256, goSubmit, randomMchtTrdNo} from '../components/
 //setZNumber1(zNumber1+1);
 //e.target.className = `bg-yellow-100 absolute top-[50%] left-[10%] ` + zNumber1;
 //console.log(e.target.className)
-
+let test = 0;
 export default function Home() {
   
-  const [zNumber1, setZNumber1] = useState('z-3');
+  const [zNumber1, setZNumber1] = useState();
   const [zNumber2, setZNumber2] = useState('0');
   const iframeUseRef = useRef(null);
   const payItemUseRef = useRef(null);
   const rfrf = useRef(null);
-
+      
   const [inputText, setInputText] = useState({
     mchtId :  ["edu00005"],
     method :  ["card"],
@@ -40,50 +40,45 @@ export default function Home() {
     cancUrl :  ["https://example.com/cancUrl"],
     pktHash : ["f395b6725a9a18f2563ce34f8bc76698051d27c05e5ba815f463f00429061c0c"]
   });
-  const togglediv1 = useRef(null);
-  const togglediv2 = useRef(null);
-  
-  useEffect(()=>{
-
-    console.log(rfrf);
-    //const iframeEvent = iframeUseRef;
-    // console.log("eerereree")
-    // document.addEventListener("DOMContentLoaded",  () => {
-    //   console.log("tsetset")
-    //   alert("DOM이 준비되었습니다!");
-    // });
-    //console.log(iframeEvent);
-    
-    // iframeEvent.item(0).setAttribute('DOMContentLoaded', ()=>{
-    //   console.log("event!!!")
-    // })
-  },[]);
-
-  const toggleFuc = (togglediv) => {
-    if(togglediv == togglediv1){
-      togglediv1.current.className = 'bg-slate-200 absolute top-[50%] left-[10%] z-10';
-      togglediv2.current.className = 'bg-blue-300 absolute top-[550%] left-[30%] z-1 space-y-3 p-3'
-    }else{
-      togglediv1.current.className = 'bg-slate-200 absolute top-[50%] left-[10%] z-1';
-      togglediv2.current.className = 'bg-blue-300 absolute top-[550%] left-[30%] z-10 space-y-3 p-3'
-    }
-  }
 
   const iframeUseEffect = useEffect(() => {
     
-    console.log("test111")
-  }, [iframeUseRef]);
+    rfrf.current.addEventListener('load', function(event){
+      test = test + 1;
+      console.log(test)
+      if(test==1){
+        setZNumber1(1);
+      }else if(test==3){
+        setZNumber1(3);
+      }else if(test==5){
+        setZNumber1(5);
+      }else if(test==7){
+        setZNumber1(7);
+      }
+    });
+
+    return ()=>{
+      rfrf.current.addEventListener('load', function(event){});
+    }
+    
+  }, [rfrf.current]);
+
+  useEffect(() => {
+    
+    console.log("testssss")
+    if(test==0)setZNumber1(0);
+  }, [zNumber1]);
 
   return (
     <>
-
+      <div id="fffff">{zNumber1}</div>
       <Topnav_hecto />
 
       <div className='flex mt-12 bg-white'>
         
         <div className=' w-1/2 '>
           
-          <Toggle_Window_hecto  togglediv1={togglediv1} togglediv2={togglediv2} toggleFuc={toggleFuc} />
+          <Toggle_Window_hecto  zNumber1={zNumber1} />
           <div className="h-7"></div>
           <Parameter_window_hecto inputText={inputText} setInputText={setInputText}/>
         
@@ -102,6 +97,7 @@ export default function Home() {
               //console.log(iframeUseRef.current.className);
               payItemUseRef.current.className = 'hidden';
               iframeUseRef.current.className = ' ml-5 mr-5 h-[700px] justify-center flex p-2 mt-5';
+              setZNumber1(2);
               goSubmit(inputText);
             }}>
               <p className="bg-[#F7A319] text-white rounded-full w-32 h-9 flex items-center justify-center">결제하기</p>
