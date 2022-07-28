@@ -1,5 +1,5 @@
 
-const arrow = () => {
+const arrow = ({ zNumber1 }) => {
   return (
     <>
       <div className=''>
@@ -27,7 +27,29 @@ const arrow = () => {
         </div>
         {/* === */}
 
-        <div className=''>
+        { zNumber1 == 7 || zNumber1 == 8 ?
+          <div className='animate-bounce'>
+            <div className='flex mt-64'>
+              <div className=''>
+                <div className='font-bold text-xl '>
+                  <div className='flex justify-start items-center h-[20px]'>
+                    <div class="border-l-2 border-b-2 border-[#F7A319] right inline-block p-1 rotate-[45deg] ml-2"></div>
+                  </div>
+                </div>
+                <div className='text-xs flex items-start bg-slate-400'>&#32;</div>
+              </div>
+              <div className='font-bold text-xl  w-5'>
+                <div className=' border-2 border-l-white border-t-white border-r-white h-[10px]  border-b-[#F7A319] '></div>
+                <div className=' border-2 border-l-white border-b-white border-r-white h-[10px] border-t-[#F7A319]'></div>
+              </div>
+              <div className='text-xs flex justify-center tems-center rounded-md text-[#F7A319]'>서비스 제공</div>
+              <div className='font-bold text-xl  w-7'>
+                <div className=' border-2 border-l-white border-t-white border-r-white h-[10px]  border-b-[#F7A319] '></div>
+                <div className=' border-2 border-l-white border-b-white border-r-white h-[10px] border-t-[#F7A319]'></div>
+              </div>
+            </div>
+          </div> :
+          <div className=''>
           <div className='flex mt-64'>
             <div className=''>
               <div className='font-bold text-xl '>
@@ -48,6 +70,7 @@ const arrow = () => {
             </div>
           </div>
         </div>
+        }
         {/* === */}
       </div>
     </>

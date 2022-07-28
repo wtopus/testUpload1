@@ -27,7 +27,7 @@ const Toggle_Window_hecto = ({ togglediv1, togglediv2, toggleFuc, zNumber1}) => 
         </div>
       </div>
       }
-      <Arrow />
+      <Arrow zNumber1={zNumber1}/>
       { zNumber1 == 1 ? 
       <div className=''>
         <div className='animate-bounce mb-5 font-["Jalnan"] text-[#F7A319]'>가맹점</div>
@@ -58,7 +58,7 @@ const Toggle_Window_hecto = ({ togglediv1, togglediv2, toggleFuc, zNumber1}) => 
       </div>
       }
       
-      <Arrow2 />
+      <Arrow2 zNumber1={zNumber1} />
       { zNumber1 == 5 || zNumber1 == 6 ? 
       <div className='font-["Jalnan"] text-[#F7A319]'>
         <div className='animate-bounce mb-5'>서버 CORE</div>

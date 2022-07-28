@@ -54,6 +54,8 @@ export default function Home() {
         setZNumber1(5);
       }else if(test==7){
         setZNumber1(7);
+      }else if(test==8){
+        setZNumber1(8);
       }
     });
 
