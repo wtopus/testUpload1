@@ -13,7 +13,7 @@ const Toggle_Window_hecto = ({ togglediv1, togglediv2, toggleFuc, zNumber1}) => 
     <div className='justify-center flex'>
       <div className=' flex justify-self-stretch'>
       
-      { zNumber1 == 0 || zNumber1 == 7 || zNumber1 == 8? 
+      { zNumber1 == 0 ?
       <div className=' '>
         <div className='animate-bounce mb-5 font-["Jalnan"] text-[#F7A319]'>사용자</div>
           <div className='flex justify-center'>
@@ -28,7 +28,7 @@ const Toggle_Window_hecto = ({ togglediv1, togglediv2, toggleFuc, zNumber1}) => 
       </div>
       }
       <Arrow zNumber1={zNumber1}/>
-      { zNumber1 == 1 ? 
+      { zNumber1 == 1 || zNumber1 == 7 || zNumber1 == 8? 
       <div className=''>
         <div className='animate-bounce mb-5 font-["Jalnan"] text-[#F7A319]'>가맹점</div>
           <div className='flex justify-center'>
@@ -42,7 +42,7 @@ const Toggle_Window_hecto = ({ togglediv1, togglediv2, toggleFuc, zNumber1}) => 
         </div>
       </div>
       }
-      <Line />
+      <Line zNumber1={zNumber1} />
       { zNumber1 == 1 || zNumber1 == 3 ? 
       <div className=' font-["Jalnan"] text-[#F7A319]'>
         <div className='animate-bounce mb-5'>결제창 UI</div>
