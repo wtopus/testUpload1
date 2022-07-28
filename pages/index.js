@@ -16,7 +16,7 @@ import { utilAes256, utilSha256, goSubmit, randomMchtTrdNo} from '../components/
 //setZNumber1(zNumber1+1);
 //e.target.className = `bg-yellow-100 absolute top-[50%] left-[10%] ` + zNumber1;
 //console.log(e.target.className)
-let test = -1;
+let test = 0;
 export default function Home() {
   
   const [zNumber1, setZNumber1] = useState();
